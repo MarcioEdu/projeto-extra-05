@@ -1,0 +1,279 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --fs-heading: clamp(4rem, 1rem + 5vw, 5rem);
+  --fs-title: clamp(2rem, 1rem + 3vw, 3rem);
+
+  --bs-primary: hsl(218, 17%, 62%);
+  --bs-title: hsl(274, 84%, 12%);
+  --lh-maxing: clamp(1.5rem, 1rem + 3vw, 3rem);
+}
+
+body {
+  font-family: "Palanquin", sans-serif;
+  background: #eff1ff;
+}
+
+.page {
+  width: 100vw;
+}
+
+header {
+  background: var(--bs-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 3.2rem;
+}
+
+header img {
+  margin-bottom: 3.2rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  animation: topdown 1000ms 200ms backwards;
+}
+
+.cards {
+  display: grid;
+  gap: 3.6rem;
+}
+
+.title {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+
+  background: #cbc0d3;
+  margin-bottom: 2.9rem;
+}
+
+h1 {
+  font-family: "Staatliches", cursive;
+  font-weight: 400;
+  font-size: var(--fs-heading);
+  line-height: 3.4rem;
+  letter-spacing: 0.05em;
+
+  padding: 8px;
+
+  color: #ffffff;
+}
+
+.sub-title {
+  width: 32rem;
+  background: #eff1ff;
+  align-items: center;
+  text-align: center;
+  margin-top: 1.4rem;
+  padding-bottom: 6.4rem;
+}
+.title-desktop {
+  display: none;
+}
+
+.sub-title p {
+  font-weight: 400;
+  font-size: var(--fs-title);
+  line-height: var(--lh-maxing);
+  text-align: center;
+
+  color: var(--bs-title);
+}
+
+.card {
+  position: relative;
+}
+
+.card img {
+  object-fit: cover;
+  border-radius: 2rem;
+}
+
+.card h2 {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+}
+
+.card h2 span {
+  background: #feeafa;
+
+  border-radius: 20px;
+  font-family: "Staatliches";
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3.4rem;
+  letter-spacing: 0.05em;
+
+  padding: 4px 2.4rem;
+  height: 3.5rem;
+
+  color: #4a4e69;
+  transition: all 200ms;
+
+  animation: downtop 1000ms 400ms backwards;
+}
+
+.card h2 span:hover {
+  transform: scale(1.2);
+  opacity: 0.6;
+}
+
+footer {
+  display: none;
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 514px) {
+  .page {
+    width: 100vw;
+  }
+  header {
+    width: 100vw;
+  }
+  .title {
+    width: 100vw;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  .sub-title {
+    width: 50rem;
+  }
+  .cards {
+    display: grid;
+    grid-template-areas:
+      "A B"
+      "C D"
+      "E F";
+  }
+}
+
+@media (min-width: 1200px) {
+  .sub-title {
+    display: none;
+  }
+  .page {
+    width: 100%;
+    display: flex;
+  }
+
+  header {
+    height: 100vh;
+    width: 50rem;
+    background: var(--bs-primary);
+  }
+
+  .title {
+    width: 100%;
+    margin-bottom: 4.5rem;
+  }
+
+  .title-desktop {
+    width: 28rem;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 20px;
+
+    text-align: center;
+    display: block;
+    color: #ffffff;
+  }
+
+  main {
+    margin: 0 auto;
+  }
+
+  .cards {
+    width: fit-content;
+    padding: 6.3rem 9.8rem;
+
+    display: grid;
+    grid-template-areas:
+      "A B C"
+      "D B F"
+      "D E F";
+  }
+  .cards div:nth-child(1) {
+    grid-area: A;
+  }
+
+  .cards div:nth-child(2) {
+    grid-area: B;
+  }
+
+  .cards div:nth-child(3) {
+    grid-area: C;
+  }
+
+  .cards div:nth-child(4) {
+    grid-area: D;
+  }
+
+  .cards div:nth-child(5) {
+    grid-area: E;
+  }
+  .cards div:nth-child(6) {
+    grid-area: F;
+  }
+
+  footer {
+    display: block;
+    margin-left: 4rem;
+  }
+
+  footer a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #4a4e69;
+  }
+
+  footer p {
+    font-family: "Open Sans";
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+
+    text-align: center;
+
+    color: #4a4e69;
+  }
+}
